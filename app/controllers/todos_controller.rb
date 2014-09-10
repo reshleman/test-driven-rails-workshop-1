@@ -8,7 +8,10 @@ class TodosController < ApplicationController
   end
 
   def create
-    Todo.create(todo_params)
+    @todo = Todo.new(todo_params)
+    @todo.user = current_user
+    @todo.save
+
     redirect_to todos_path
   end
 
