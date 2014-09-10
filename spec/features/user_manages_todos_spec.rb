@@ -23,11 +23,9 @@ feature "Manage todos" do
     sign_in
     create_todo_with_description "Buy some milk"
 
-    within "li.todo" do
-      click_link "Complete"
-    end
+    complete_todo "Buy some milk"
 
-    expect(page).to have_css "li.todo.completed"
+    user_sees_completed_todo_item "Buy some milk"
   end
 
   def create_todo_with_description(description)
@@ -42,6 +40,16 @@ feature "Manage todos" do
 
   def user_does_not_see_todo_item(description)
     expect(page).to_not have_css "li.todo", text: description
+  end
+
+  def user_sees_completed_todo_item(description)
+    expect(page).to have_css "li.todo.completed", text: description
+  end
+
+  def complete_todo(description)
+    within "li.todo:contains('#{description}')" do
+      click_link "Complete"
+    end
   end
 end
 
