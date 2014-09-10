@@ -19,3 +19,7 @@ group :test, :development do
   gem 'rspec-rails'
   gem 'capybara'
 end
+
+group :test do
+  gem 'factory_girl_rails'
+end
