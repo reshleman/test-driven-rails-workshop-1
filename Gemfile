@@ -18,6 +18,7 @@ gem 'spring',        group: :development
 group :test, :development do
   gem 'rspec-rails'
   gem 'capybara'
+  gem 'simplecov'
 end
 
 group :test do
