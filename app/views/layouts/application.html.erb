@@ -9,7 +9,7 @@
 <body>
 
 <div>
-  <p class="welcome">Welcome, <%= session[:current_email] %></p>
+  <p class="welcome">Welcome, <%= current_user.email %></p>
 </div>
 
 <%= yield %>
